@@ -13,7 +13,7 @@ This project moves a Qwen KV Cache (24 layers, 1024 tokens, 48MB) between two ma
 - measures bandwidth + latency (p50/p99/p999), then double-buffered compute/transfer overlap  
 
 Run: Two Linux boxes on same LAN. On each, run:  
-modprobe rdma_rxe
+modprobe rdma_rxe  
 rdma link add rxe0 type rxe netdev eth0  
 
 On each, build with make. Run receiver side (--server) first, note the IP, then run sender (--client).  
