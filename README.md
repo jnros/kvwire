@@ -9,9 +9,11 @@ RDMA over RoCE for disaggregated inference. Moves a real Qwen KV Cache (24 layer
 - measures bandwidth + latency (p50/p99/p999), then double-buffered compute/transfer overlap
 
 Findings: Bandwidth knee at ~12KB. Per-token-per-layer (512B) dominated by overhead.  Move to per-token streaming is at 95% of saturation.   
+
 ![BWLat](out_latbw.png)
 
 Overlap peaks at 1.92X of theoretical 2X when Tc = Tx.  
+
 ![Overlap](out_overlap.png)
 
 Results are limited to soft RoCE. Real RNIC would change the floors but shape would stay the same.
