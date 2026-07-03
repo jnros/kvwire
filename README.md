@@ -4,7 +4,7 @@ RDMA over Ethernet (RoCE) for disaggregated inference
 
 After the prefill server builds KV cache, it typically moves tensors to the decode server over RDMA. Is it optimal to move tiny chunks, or the entire cache at once? If we paralelize KV compute and RDMA offload, how much can we speed things up?
 
-This project moves a Qwen KV Cache (24 layers, 1024 tokens, 48MB) between two machines with verbs in C.
+This project moves a Qwen KV Cache (24 layers, 4096 tokens, 48MB) between two machines with verbs in C.
 
 - Soft-ROCE on two servers over Ethernet
 - TCP bootstrap for out-of-band (qpn, rkey, gid) then state machine (INIT->RTR->RTS)
