@@ -18,12 +18,6 @@ rdma link add rxe0 type rxe netdev eth0
 
 On each, build with make. Run receiver side (--server) first, note the IP, then run sender (--client).  
 
-Run: Two Linux boxes on same LAN. On each, run:  
-modprobe rdma_rxe
-rdma link add rxe0 type rxe netdev eth0
-
-On each, build with make. Run receiver side (--server) first, note the IP, then run sender (--client).
-
 Findings: Bandwidth knee at ~12KB. Per-token-per-layer (512B) dominated by overhead.  Per-token (12Kb) streaming moves up to 95% of saturation.   
 
 ![BWLat](out_latbw.png)
